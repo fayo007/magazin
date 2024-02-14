@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<!--start-ckeckout-->
+	<div class="ckeckout">
+		<div class="container">
+			<div class="ckeck-top heading">
+				<h2>Saqlangan maxsulotlar</h2>
+			</div>
+			<div class="ckeckout-top">
+			<div class="cart-items">
+			 <h3>Saqlangan masulotlar</h3>
+			<div class="in-check" >
+				<ul class="unit" style="display: flex;">
+					<li><span>Maxsulot</span></li>
+					<li><span>Maxsulot soni</span></li>		
+					<li><span>Maxsulot narxi</span></li>
+					<li><span>Maxsulot rasmi</span></li>
+					<div class="clearfix"> </div>
+				</ul>
+                {% for i in objects %}
+				<ul class="cart-header">
+					<a href="{% url 'main:delete_wish_list'%}?id={{i.id}}"><div class="close1"></div></a>
+                    <a href="{% url 'main:product_detail' i.product.id %}" style="display: flex;">
+                        <li><span>{{i.product.name}}</span></li>
+                        <li><span>{{i.product.quantity}}</span></li>
+                        <li><span>{{i.product.price}}</span></li>
+                        <li class="ring-in"><img src="{{ i.product.baner_image.url }}" class="img-responsive" alt="" width="150px">
+                        </li>
+                    </a>
+                    <div class="clearfix"> </div>
+				</ul>
+                {% endfor %}
+			</div>
+			</div>  
+		 </div>
+		</div>
+	</div>
+	<!--end-ckeckout-->
+{% endblock %}

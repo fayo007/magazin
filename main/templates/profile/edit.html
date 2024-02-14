@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="account">
+    <div class="container">
+    <div class="account-top heading">
+            <h2>ACCOUNT</h2>
+        </div>
+        <div class="account-main">
+            <div class="col-md-6 account-left">
+                <h3>Existing User</h3>
+                <div class="account-bottom">
+                    <form method="post">
+                        {% csrf_token %}
+                    <label for="">Username</label>
+                    <input type="text" tabindex="3" required="" value="{{user.username}}" name="username">
+                    <label for="">First Name</label>
+                    <input type="text" tabindex="4" value="{{user.first_name}}" name="first_name">
+                    <label for="" style="display: block;"> Email </label>
+                    <input type="email" tabindex="5" value="{{user.email}}" style=" width: 90%; height: 36px;" name="email">
+                    <div class="address">
+                        <button type="submit" class="btn btn-primary">O`zgartirish</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            <div class="col-md-6 account-left">
+                <h3>Existing User</h3>
+                <div class="account-bottom">
+                    <form action="{% url 'main:set_password' %}" method="post">
+                        {% csrf_token %}
+                    <label for="">Parol kiritiring</label>
+                    <input placeholder="***" type="password" tabindex="3" required="" name="old">
+                    <label for="">Yangi Parol kiritiring</label>
+                    <input placeholder="***" type="password" tabindex="3" required="" name="new">
+                    <label for="">Yangi Parol tasdiqlang</label>
+                    <input placeholder="***" type="password" tabindex="4" required="" name="confirm">
+                    <div class="address">
+                        <button type="submit" class="btn btn-primary">O`zgartirish</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<!--start-ckeckout-->
+	<div class="ckeckout">
+		<div class="container">
+			<div class="ckeck-top heading">
+				<h2>CHECKOUT</h2>
+			</div>
+			<div class="ckeckout-top">
+			<div class="cart-items">
+			 <h3>Faol Savatchalar</h3>
+			<div class="in-check" >
+				<ul class="unit">
+					<li><span>Maxsulotlar soni</span></li>
+					<li><span>Maxsulotlar narxi</span></li>		
+					<div class="clearfix"></div>
+				</ul>
+                {% for cart in active %}
+				<ul class="cart-header">
+						<li><span class="name">{{cart.quantity}}</span></li>
+						<li><span class="cost">{{cart.total_price}}</span></li>
+					<div class="clearfix"> </div>
+				</ul>
+                {% endfor %}
+			</div>
+			 <h3>Nofaol Savatchalar</h3>
+			<div class="in-check" >
+				<ul class="unit">
+					<li><span>Maxsulotlar soni</span></li>
+					<li><span>Maxsulotlar narxi</span></li>		
+					<div class="clearfix"></div>
+				</ul>
+                {% for cart in in_active %}
+				<ul class="cart-header">
+						<li><span class="name">{{cart.quantity}}</span></li>
+						<li><span class="cost">{{cart.total_price}}</span></li>
+					<div class="clearfix"> </div>
+				</ul>
+                {% endfor %}
+			</div>
+			</div>  
+		 </div>
+		</div>
+	</div>
+	<!--end-ckeckout-->
+{% endblock %}
