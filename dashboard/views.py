@@ -166,3 +166,13 @@ def list_enter(request):
 #         enters = models.EnterProduct.objects.all()
 #     context = {'enters':enters}
 #     return render(request, 'dashboard/enter/list.html', context)
+
+
+def product(request):
+    
+      if request.method == 'GET':
+        result = search_with_fields(request)
+        enters = models.Product.objects.filter(**result)
+        context = {'name': pagenator_page(name, 1, request)}
+
+        return render(request, 'dashboard/product/list.html')

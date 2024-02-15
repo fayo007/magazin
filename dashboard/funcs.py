@@ -6,7 +6,7 @@ from django.core.paginator import (Paginator,
 def search_with_fields(request):
     result = {}
     for key, value in request.GET.items():
-        if value:
+        if value: 
             if key == 'name':
                 key = 'product__name__icontains'
             elif key == 'created_at_start':
